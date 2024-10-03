@@ -125,38 +125,6 @@ class Craptcha{
         this.movescore = Math.max(0, this.movescore-1);
     }
 
-    recursiveWait(waited, maxWait, botScore){
-        const title = document.getElementById("challengeNumber");
-        switch(title.innerText){
-            case "Validating.":
-                title.innerText = "Validating..";
-                break;
-            case "Validating..":
-                title.innerText = "Validating...";
-                break;
-            case "Validating...":
-                title.innerText = "Validating.";
-                break;
-        }
-        if(waited !== maxWait){
-            const self = this;
-            setTimeout(function(){
-                self.recursiveWait(waited + 1, maxWait, botScore);
-            }, 1000);
-        }else{
-            console.log(botScore);
-            document.removeEventListener("mousemove", this.reduceMoveScore);
-            const finalScore = Math.min(botScore["Overall"] + this.movescore);
-            title.classList.add("hidden");
-            document.getElementById("challengePrompt").classList.remove("hidden");
-            if(finalScore > 49){
-                document.getElementById("challengePrompt").innerText = "I'm " + Math.floor(finalScore) + "% sure you're a robot. GET OUT.";
-            }else{
-                document.getElementById("challengePrompt").innerText = "I'm " + Math.floor((100 - finalScore)) + "% sure you're not a robot. Come on in.";
-            }
-        }
-    }
-
     validateResults(){
         document.getElementById("challengeNumber").innerText = "Validating.";
         document.getElementById("challengePrompt").classList.add("hidden");
@@ -168,6 +136,8 @@ class Craptcha{
         this.recursiveWait(0, 5, botScore);
     }
 
+    // The next two methods are basically the main part, the other parts are basically just set dressing for presentation.
+    // Prepare for *real* horror.
     checkAnswers(answers){
         // First answer bot probability
         let first = 0;
@@ -243,7 +213,38 @@ class Craptcha{
             "Overall": first + second + third,
             "IsBot": ((first + second + third) > 20)
         }
+    }
 
+    recursiveWait(waited, maxWait, botScore){
+        const title = document.getElementById("challengeNumber");
+        switch(title.innerText){
+            case "Validating.":
+                title.innerText = "Validating..";
+                break;
+            case "Validating..":
+                title.innerText = "Validating...";
+                break;
+            case "Validating...":
+                title.innerText = "Validating.";
+                break;
+        }
+        if(waited !== maxWait){
+            const self = this;
+            setTimeout(function(){
+                self.recursiveWait(waited + 1, maxWait, botScore);
+            }, 1000);
+        }else{
+            console.log(botScore);
+            document.removeEventListener("mousemove", this.reduceMoveScore);
+            const finalScore = Math.min(botScore["Overall"] + this.movescore);
+            title.classList.add("hidden");
+            document.getElementById("challengePrompt").classList.remove("hidden");
+            if(finalScore > 49){
+                document.getElementById("challengePrompt").innerText = "I'm " + Math.max(0, Math.floor(finalScore)) + "% sure you're a robot. GET OUT.";
+            }else{
+                document.getElementById("challengePrompt").innerText = "I'm " + Math.min(100, Math.floor((100 - finalScore))) + "% sure you're not a robot. Come on in.";
+            }
+        }
     }
 }
 
