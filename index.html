@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <title>OnlyHumans</title>
+</head>
+<body>
+    <div id="content">
+        <div id="sideBanner">
+            <div id="logo">
+                <img src="assets/logo-white.png">
+                <div id="logoName"><p>Only</p><p>Humans</p></div>
+            </div>
+            <p id="bannerSlogan">Sign up to see your favorite humans</p>
+            <img src="assets/logo-transparent.png" id="bannerDecor">
+        </div>
+        <div id="loginForm">
+            <div id="titleMessage">
+                <p>Log in</p>
+                <p id="message"></p>
+            </div>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <div id="craptcha">
+                <div id="craptchaChallengeBox">
+                    <p id="challengeNumber"></p>
+                    <p id="challengePrompt"></p>
+                    <p id="answerLabel">Answer:</p>
+                    <div id="progress" class="hidden"><div id="progressBar"></div></div>
+                    <input type="text" id="answerBox" class="hidden">
+                    <input type="range" id="answerRange" min="0" max="10" step="0" list="markers" class="hidden">
+                    <datalist id="markers">
+                        <option value="0"></option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                        <option value="5"></option>
+                        <option value="6"></option>
+                        <option value="7"></option>
+                        <option value="8"></option>
+                        <option value="9"></option>
+                        <option value="10"></option>
+                      </datalist>
+                    <input type="button" value="Next" id="challengeNext">
+                </div>
+                <div id="craptchaCheckBox">
+                    <p>Check the box to confirm you're human</p>
+                    <input type="checkbox" id="checkBox" unchecked>
+                </div>
+            </div>
+            <input type="button" id="loginButton" value="LOG IN" disabled>
+            <p id="disclaimer">By logging in and using OnlyHumans, you agree to our Terms of Service and Privacy Policy, and confirm that you are at least 87% organic.</p>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

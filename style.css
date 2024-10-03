@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+/* STYLE START */
+#content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#sideBanner{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    min-width: 50%;
+    background-color: rgb(130, 99, 216);
+    padding-top: 5%;
+    overflow: hidden;
+    user-select: none;
+}
+
+#logo{
+    margin-left: 20%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+#logo img{
+    height: 35px;
+}
+
+#logo p{
+    color: white;
+    font-size: xx-large;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+#logoName{
+    display: flex;
+}
+
+#logoName :nth-child(2){
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#bannerSlogan{
+    margin-left: 20%;
+    color: white;
+    font-size: xx-large;
+    font-family: sans-serif;
+}
+
+#bannerDecor{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    width: 100%;
+    opacity: 0.5;
+}
+
+#loginForm{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10% 0px 10%;
+    gap: 20px;
+    font-size: medium;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm input[type="text"], #loginForm input[type="password"]{
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+}
+
+#loginButton {
+    height: 50px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: none;
+    border: none;
+    background-color: rgb(130, 99, 216);
+    color: white;
+    font-size: medium;
+    font-family: sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#loginButton:hover{
+    background-color: rgb(164, 138, 235);
+}
+
+#loginButton:active{
+    background-color: rgb(92, 63, 172);
+}
+
+#loginButton:disabled{
+    background-color: rgb(150, 150, 150);
+    cursor: default;
+}
+
+#disclaimer{
+    color: rgb(0, 0, 0, 0.5);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#titleMessage{
+    display: flex;
+    align-self: flex-start;
+    gap: 10px;
+}
+
+#message{
+    color: red;
+    font-family: sans-serif;
+}
+
+#craptcha{
+    position: relative;
+    display: none;
+}
+
+#craptchaCheckBox{
+    position: relative;
+    width: 300px;
+    display: flex;
+    padding: 15px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    font-size: small;
+}
+
+#craptchaCheckBox p{
+    margin: 0;
+    padding: 0;
+}
+
+#checkBox{
+    width: 25px;
+    accent-color: rgb(130, 99, 216);
+}
+
+#checkBox:disabled{
+    accent-color: rgb(130, 99, 216);
+}
+
+#craptchaChallengeBox{
+    width: 300px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    top: 0;
+    transform: translateY(-102%);
+    background-color: white;
+    box-shadow: 5px 5px 3px 3px rgb(0, 0, 0, 0.1);
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    transition: 0.5s opacity;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+#challengeNumber{
+    color: rgb(0, 0, 0, 0.5)
+}
+
+#craptchaChallengeBox.visible{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#challengePrompt{
+    width: 100%;
+    text-align: center;
+    word-break: normal;
+}
+
+#challengeNext{
+    width: 100%;
+    height: 30px;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(130, 99, 216);
+    color: white;
+    font-size: medium;
+    font-family: sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#challengeNext:hover{
+    background-color: rgb(164, 138, 235);
+}
+
+#challengeNext:active{
+    background-color: rgb(92, 63, 172);
+}
+
+#challengeNext:disabled{
+    background-color: rgb(150, 150, 150);
+    cursor: default;
+}
+
+#answerRange{
+    accent-color: rgb(130, 99, 216);
+    width: 100%;
+}
+
+#progress{
+    position: relative;
+    height: 15px;
+    width: 100%;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#progressBar{
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 100%;
+    background-color: rgb(130, 99, 216);
+}
+
+.hidden{
+    display: none;
+}
