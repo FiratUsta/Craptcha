@@ -12,8 +12,8 @@ class Craptcha{
         document.addEventListener("mousemove", (e) => {this.reduceMoveScore(e)});
 
         // Vars
-        this.validated = false;
-        this.isAndroid = false;
+        this.botThreshold = 20;
+        this.enableMovement = false;
         this.movescore = 0;
 
         // Challenges
@@ -90,7 +90,7 @@ class Craptcha{
         let inputIsValid = false;
         this.elementNextButton.disabled = true;
         document.getElementById("challengeNumber").innerText = "Challenge 3 of 3";
-        document.getElementById("challengePrompt").innerText = "Please fill the bar by randomly typing on your keyboard USING BOTH HANDS.";
+        document.getElementById("challengePrompt").innerText = "Please fill the bar by mashing your keyboard randomly USING BOTH HANDS.";
         document.getElementById("answerBox").classList.remove("hidden");
         document.getElementById("progress").classList.remove("hidden");
         document.getElementById("answerRange").classList.add("hidden");
@@ -211,10 +211,11 @@ class Craptcha{
             "Second": second,
             "Third": third,
             "Overall": first + second + third,
-            "IsBot": ((first + second + third) > 20)
+            "IsBot": ((first + second + third) > this.botThreshold)
         }
     }
 
+    // Patience Test
     recursiveWait(waited, maxWait, botScore){
         const title = document.getElementById("challengeNumber");
         switch(title.innerText){
@@ -235,14 +236,21 @@ class Craptcha{
             }, 1000);
         }else{
             console.log(botScore);
+
             document.removeEventListener("mousemove", this.reduceMoveScore);
-            const finalScore = Math.min(botScore["Overall"] + this.movescore);
-            title.classList.add("hidden");
-            document.getElementById("challengePrompt").classList.remove("hidden");
-            if(finalScore > 49){
-                document.getElementById("challengePrompt").innerText = "I'm " + Math.max(0, Math.floor(finalScore)) + "% sure you're a robot. GET OUT.";
+            if(this.enableMovement){
+                botScore["Overall"] += this.movescore;
+                botScore["IsBot"] = (botScore["IsBot"] >= this.botThreshold);
+            }
+
+            document.getElementById("craptchaChallengeBox").classList.remove("visible");
+
+            if(botScore["IsBot"]){
+                document.getElementById("message").innerText = "CRAPTCHA failed, please refresh the page and try again!";
             }else{
-                document.getElementById("challengePrompt").innerText = "I'm " + Math.min(100, Math.floor((100 - finalScore))) + "% sure you're not a robot. Come on in.";
+                document.getElementById("message").innerText = "CRAPTCHA passed, click to log in button to log in!";
+                document.getElementById("message").style.color = "green";
+                document.getElementById("loginButton").disabled = false;
             }
         }
     }

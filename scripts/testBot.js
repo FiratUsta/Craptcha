@@ -49,13 +49,14 @@ class TestBot{
                 caught++;
             }
         }
-        console.log("-----RESULTS-----");
+        console.log("----- TEST RESULTS BEGIN -----");
         console.log("First challenge score average: " + (first / cycles));
         console.log("Second challenge score average: " + (second / cycles));
         console.log("Third challenge score average: " + (third / cycles));
         console.log("Overall score average: " + (overall / cycles));
         console.log("Highest overall score: " + highestOverall);
         console.log("Caught in: " + caught + " runs (" + ((caught/cycles) * 100) + "%)");
+        console.log("------ TEST RESULTS END ------");
     }
 }
 

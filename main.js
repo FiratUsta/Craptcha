@@ -12,4 +12,4 @@ const validator = new Validator(document.getElementById("username"),
 
 const testBot = new TestBot(craptcha);
 
-//testBot.runTests(1000000);
+testBot.runTests(1000000);

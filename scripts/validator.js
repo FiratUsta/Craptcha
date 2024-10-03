@@ -38,9 +38,13 @@ class Validator{
             this.messageField.innerText = "";
             // Super secure username and password checker
             if(this.usernameField.value === "AzureDiamond" && this.passwordField.value === "hunter2"){
-                this.craptcha.show();
-                this.loginButton.disabled = true;
-                this.loginAttempts++;
+                if(this.loginAttempts === 0){
+                    this.craptcha.show();
+                    this.loginButton.disabled = true;
+                    this.loginAttempts++;
+                }else{
+                    location.href = location.href;
+                }
             }else{
                 this.messageField.innerText = "Invalid username/password!";
             }
