@@ -8,6 +8,8 @@ For live demo, see the GitHub page [here](https://firatusta.github.io/Craptcha/)
 
 To run it locally (why would you even want to do that) you can't just download and launch from index.html, you'll get a CORS error. You need to actually host it. VSCode liveserver extensions work.
 
+Log-in with the username `AzureDiamond` and password `hunter2` (funny, I know)
+
 Not mobile friendly!
 
 For Laurie: The stuff you'd probably be interested in is in `scripts/craptcha.js`
