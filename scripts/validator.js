@@ -3,9 +3,12 @@ import * as Elements from "./elements.js";
 class FormValidator{
     constructor(craptcha){
         this.craptcha = craptcha;
-
         this.loginAttempts = 0;
 
+        this.init();
+    }
+
+    init(){
         Elements.inputUsername.oninput = () => {this.validate()};
         Elements.inputUsername.addEventListener("keyup", (event) => {
             if (event.key === "Enter"){
