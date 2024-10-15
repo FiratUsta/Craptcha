@@ -13,8 +13,9 @@ const inputRange        = document.getElementById("inputRange");
 const buttonChallenge   = document.getElementById("buttonChallenge");
 // Craptcha Misc
 const craptchaMain      = document.getElementById("craptchaMain");
+const craptchaChallenge = document.getElementById("craptchaChallenge");
 const checkboxContainer = document.getElementById("checkboxContainer");
-const inputCheckbox     = document.getElementById("inputChechbox");
+const inputCheckbox     = document.getElementById("inputCheckbox");
 
 export{
     // Form Elems
@@ -32,6 +33,7 @@ export{
     buttonChallenge,
     // Craptcha Misc
     craptchaMain,
+    craptchaChallenge,
     checkboxContainer,
     inputCheckbox     
 }
