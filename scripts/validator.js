@@ -1,4 +1,4 @@
-class Validator{
+class FormValidator{
     constructor(fieldUsername, fieldPassword, fieldMessage, buttonLogin, craptcha){
         this.usernameField = fieldUsername;
         this.passwordField = fieldPassword;
