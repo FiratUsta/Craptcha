@@ -7,6 +7,7 @@ const fieldMessage      = document.getElementById("message");
 const challengePrompt   = document.getElementById("challengePrompt");
 const challengeNumber   = document.getElementById("challengeNumber");
 const challengeLabel    = document.getElementById("challengeLabel");
+const progressContainer = document.getElementById("progressBarContainer");
 const progressBar       = document.getElementById("progressBar");
 const inputText         = document.getElementById("inputText");
 const inputRange        = document.getElementById("inputRange");
@@ -27,6 +28,7 @@ export{
     challengePrompt,
     challengeNumber,
     challengeLabel,
+    progressContainer,
     progressBar,
     inputText,
     inputRange,
