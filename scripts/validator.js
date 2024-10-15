@@ -1,8 +1,7 @@
 import * as Elements from "./elements.js";
 
 class FormValidator{
-    constructor(craptcha){
-        this.craptcha = craptcha;
+    constructor(){
         this.loginAttempts = 0;
 
         this.init();
@@ -21,7 +20,7 @@ class FormValidator{
                 this.attemptLogin();
             }
         })
-        Elements.inputPassword.onclick = () => {this.attemptLogin()};
+        Elements.buttonLogin.onclick = () => {this.attemptLogin()};
     }
 
     validate(){
@@ -40,7 +39,7 @@ class FormValidator{
             // Super secure username and password checker
             if(Elements.inputUsername.value === "AzureDiamond" && Elements.inputPassword.value === "hunter2"){
                 if(this.loginAttempts === 0){
-                    this.craptcha.show();
+                    Elements.craptchaMain.style.display = "block";
                     Elements.buttonLogin.disabled = true;
                     this.loginAttempts++;
                 }else{
