@@ -93,7 +93,7 @@ body, html{
     border-radius: 10px;
 }
 
-#loginButton {
+#buttonLogin {
     height: 50px;
     width: 100%;
     border-radius: 20px;
@@ -107,15 +107,15 @@ body, html{
     cursor: pointer;
 }
 
-#loginButton:hover{
+#buttonLogin:hover{
     background-color: rgb(164, 138, 235);
 }
 
-#loginButton:active{
+#buttonLogin:active{
     background-color: rgb(92, 63, 172);
 }
 
-#loginButton:disabled{
+#buttonLogin:disabled{
     background-color: rgb(150, 150, 150);
     cursor: default;
 }
@@ -137,12 +137,12 @@ body, html{
     font-family: sans-serif;
 }
 
-#craptcha{
+#craptchaMain{
     position: relative;
     display: none;
 }
 
-#craptchaCheckBox{
+#checkboxContainer{
     position: relative;
     width: 300px;
     display: flex;
@@ -152,21 +152,21 @@ body, html{
     font-size: small;
 }
 
-#craptchaCheckBox p{
+#checkboxContainer p{
     margin: 0;
     padding: 0;
 }
 
-#checkBox{
+#inputCheckbox{
     width: 25px;
     accent-color: rgb(130, 99, 216);
 }
 
-#checkBox:disabled{
+#inputCheckbox:disabled{
     accent-color: rgb(130, 99, 216);
 }
 
-#craptchaChallengeBox{
+#craptchaChallenge{
     width: 300px;
     position: absolute;
     display: flex;
@@ -190,7 +190,7 @@ body, html{
     color: rgb(0, 0, 0, 0.5)
 }
 
-#craptchaChallengeBox.visible{
+#craptchaChallenge.visible{
     opacity: 1;
     pointer-events: all;
 }
@@ -201,7 +201,7 @@ body, html{
     word-break: normal;
 }
 
-#challengeNext{
+#buttonChallenge{
     width: 100%;
     height: 30px;
     box-shadow: none;
@@ -215,25 +215,25 @@ body, html{
     cursor: pointer;
 }
 
-#challengeNext:hover{
+#buttonChallenge:hover{
     background-color: rgb(164, 138, 235);
 }
 
-#challengeNext:active{
+#buttonChallenge:active{
     background-color: rgb(92, 63, 172);
 }
 
-#challengeNext:disabled{
+#buttonChallenge:disabled{
     background-color: rgb(150, 150, 150);
     cursor: default;
 }
 
-#answerRange{
+#inputRange{
     accent-color: rgb(130, 99, 216);
     width: 100%;
 }
 
-#progress{
+#progressBarContainer{
     position: relative;
     height: 15px;
     width: 100%;
