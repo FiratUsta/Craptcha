@@ -2,6 +2,7 @@
 const inputUsername     = document.getElementById("inputUsername");
 const inputPassword     = document.getElementById("inputPassword");
 const buttonLogin       = document.getElementById("buttonLogin");
+const fieldMessage      = document.getElementById("message");
 // Challenge Elems
 const challengePrompt   = document.getElementById("challengePrompt");
 const challengeNumber   = document.getElementById("challengeNumber");
@@ -20,6 +21,7 @@ export{
     inputUsername,
     inputPassword,
     buttonLogin,
+    fieldMessage,
     // Challenge Elems,
     challengePrompt,
     challengeNumber,

@@ -1,52 +1,50 @@
+import * as Elements from "./elements.js";
+
 class FormValidator{
-    constructor(fieldUsername, fieldPassword, fieldMessage, buttonLogin, craptcha){
-        this.usernameField = fieldUsername;
-        this.passwordField = fieldPassword;
-        this.messageField = fieldMessage;
-        this.loginButton = buttonLogin;
+    constructor(craptcha){
         this.craptcha = craptcha;
 
         this.loginAttempts = 0;
 
-        this.usernameField.oninput = () => {this.validate()};
-        this.usernameField.addEventListener("keyup", (event) => {
+        Elements.inputUsername.oninput = () => {this.validate()};
+        Elements.inputUsername.addEventListener("keyup", (event) => {
             if (event.key === "Enter"){
-                this.passwordField.focus();
+                Elements.inputPassword.focus();
             }
         })
-        this.passwordField.oninput = () => {this.validate()};
-        this.passwordField.addEventListener("keyup", (event) => {
+        Elements.inputPassword.oninput = () => {this.validate()};
+        Elements.inputPassword.addEventListener("keyup", (event) => {
             if (event.key === "Enter"){
                 this.attemptLogin();
             }
         })
-        this.loginButton.onclick = () => {this.attemptLogin()};
+        Elements.inputPassword.onclick = () => {this.attemptLogin()};
     }
 
     validate(){
         if(this.loginAttempts === 0){
-            if(this.usernameField.value !== "" && this.passwordField.value !== ""){
-                this.loginButton.disabled = false;
+            if(Elements.inputUsername.value !== "" && Elements.inputPassword.value !== ""){
+                Elements.buttonLogin.disabled = false;
             }else{
-                this.loginButton.disabled = true;
+                Elements.buttonLogin.disabled = true;
             }
         }
     }
 
     attemptLogin(){
-        if(!this.loginButton.disabled){
-            this.messageField.innerText = "";
+        if(!Elements.buttonLogin.disabled){
+            Elements.fieldMessage.innerText = "";
             // Super secure username and password checker
-            if(this.usernameField.value === "AzureDiamond" && this.passwordField.value === "hunter2"){
+            if(Elements.inputUsername.value === "AzureDiamond" && Elements.inputPassword.value === "hunter2"){
                 if(this.loginAttempts === 0){
                     this.craptcha.show();
-                    this.loginButton.disabled = true;
+                    Elements.buttonLogin.disabled = true;
                     this.loginAttempts++;
                 }else{
                     location.href = location.href;
                 }
             }else{
-                this.messageField.innerText = "Invalid username/password!";
+                Elements.fieldMessage.innerText = "Invalid username/password!";
             }
         }
     }
